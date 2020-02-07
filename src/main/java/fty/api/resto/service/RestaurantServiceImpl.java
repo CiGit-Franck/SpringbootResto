@@ -72,5 +72,10 @@ public class RestaurantServiceImpl implements RestaurantService {
             return false;
         }
     }
+
+    @Override
+    public List<Restaurant> getFilteredRestaurants(Integer lowestNote, Integer highestNote) {
+        return restaurantRepository.findAllByReviewsNoteBetween(lowestNote, highestNote);
+    }
     
 }
