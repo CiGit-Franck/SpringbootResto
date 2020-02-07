@@ -3,12 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fty.api.resto.model;
+package fty.api.resto.repository;
+
+import fty.api.resto.model.Client;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  *
  * @author utilisateur
  */
-public class Booking {
+public interface ClientRepository extends JpaRepository<Client, Long> {
     
 }

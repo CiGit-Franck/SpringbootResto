@@ -3,12 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fty.api.resto.model;
+package fty.api.resto.repository;
+
+import fty.api.resto.model.Review;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  *
  * @author utilisateur
  */
-public enum RestaurantType {
-    AMERICAN, ITALIEN, ASIAT, FRANCAIS, INDIEN
+public interface ReviewRepository extends JpaRepository<Review, Long> {
+    
 }

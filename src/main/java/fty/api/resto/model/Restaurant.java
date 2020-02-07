@@ -5,6 +5,7 @@
  */
 package fty.api.resto.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 import java.util.*;
 
@@ -22,17 +23,71 @@ public class Restaurant {
 
     @Column(nullable = false)
     private String name;
+
     @Column(nullable = false)
     private Integer seats;
+
     @Enumerated(EnumType.STRING)
     private RestaurantType restaurantType;
-    @OneToMany
+
+    @OneToMany(mappedBy = "restaurant")
     private List<Review> reviews = new ArrayList<>();
-//    @ManyToMany
-//    @JoinTable(name = "restaurants_visits", joinColums = @JoinColumn(name = "restaurant_id"), inverseJoinColums = @JoinColumn(name = "client_id"))
-//    private Set<Client> visitors;
-//
-//    public Restaurant() {
-//        this.visitors = new HashSet<>();
-//    }
+
+    @JsonIgnore
+    @ManyToMany
+    @JoinTable(
+            name = "restaurants_visits",
+            joinColumns = @JoinColumn(name = "restaurant_id"),
+            inverseJoinColumns = @JoinColumn(name = "client_id"))
+    private Set<Client> visitors = new HashSet<>();
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Integer getSeats() {
+        return seats;
+    }
+
+    public void setSeats(Integer seats) {
+        this.seats = seats;
+    }
+
+    public RestaurantType getRestaurantType() {
+        return restaurantType;
+    }
+
+    public void setRestaurantType(RestaurantType restaurantType) {
+        this.restaurantType = restaurantType;
+    }
+
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
+    }
+
+    public Set<Client> getVisitors() {
+        return visitors;
+    }
+
+    public void setVisitors(Set<Client> visitors) {
+        this.visitors = visitors;
+    }
+
+
 }

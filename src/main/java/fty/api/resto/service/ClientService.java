@@ -3,12 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fty.api.resto.model;
+package fty.api.resto.service;
+
+import fty.api.resto.model.Client;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author utilisateur
  */
-public enum RestaurantType {
-    AMERICAN, ITALIEN, ASIAT, FRANCAIS, INDIEN
+@Service
+public interface ClientService {
+    
+    Client createClient(Client clientToCreate);
 }
