@@ -7,11 +7,13 @@ package fty.api.resto.repository;
 
 import fty.api.resto.model.Client;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author utilisateur
  */
+@Repository
 public interface ClientRepository extends JpaRepository<Client, Long> {
     
 }
